@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+
+
+    <style>
+        .sun_sky {
+          background:#2EB5E5;
+          transition-duration:2s;
+        }
+        
+        .sun { 
+          position: absolute;
+            top:70px;
+            /*left:0;*/
+            /*right:0;*/
+            right:70px;
+            /*bottom:0;*/
+            /*margin: auto;*/
+            width:70px;
+            height:70px;
+            border-radius:50%;	
+            background:white;
+            opacity:0.9;			
+            box-shadow: 0px 0px 40px 15px white;  
+        
+            
+            transition-duration:3s;
+        }
+        
+        .ray_box {
+          position: absolute;
+          margin: auto;
+            top:0px;
+            left:0;
+            right:0;
+            bottom:0;	
+          width:70px;  
+          -webkit-animation: ray_anim 120s linear infinite;
+          animation: ray_anim 120s linear infinite;
+        }
+        .ray {  
+            background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%);
+                background: linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%); 
+            margin-left:10px;
+            border-radius:80% 80% 0 0;
+            position:absolute;
+            opacity:0.1;
+        }
+        
+        .ray1 {    
+            height:170px;
+            width:30px;
+           -webkit-transform: rotate(180deg);
+            top:-175px;
+            left: 15px;
+        }
+        .ray2 {
+            height:100px;
+            width:8px;
+           -webkit-transform: rotate(220deg);
+            top:-90px;
+            left: 75px;
+        }
+        .ray3 {
+            height:170px;
+            width:50px;
+           -webkit-transform: rotate(250deg);
+            top:-80px;
+            left: 100px;
+        }
+        .ray4 {
+            height:120px;
+            width:14px;
+           -webkit-transform: rotate(305deg);
+            top:30px;
+            left: 100px;
+        }
+        .ray5 {
+            height:140px;
+            width:30px;
+           -webkit-transform: rotate(-15deg);
+            top:60px;
+            left: 40px;
+        }
+        .ray6 {
+            height:90px;
+            width:50px;
+           -webkit-transform: rotate(30deg);
+            top:60px;
+            left: -40px;
+        }
+        .ray7 {
+            height:180px;
+            width:10px;
+           -webkit-transform: rotate(70deg);
+            top:-35px;
+            left: -40px;
+        }
+        .ray8 {
+            height:120px;
+            width:30px;
+           -webkit-transform: rotate(100deg);
+            top:-45px;
+            left:-90px;
+        }
+        .ray9 {
+            height:80px;
+            width:10px;
+           -webkit-transform: rotate(120deg);
+            top:-65px;
+            left:-60px;
+        }
+        .ray10 {
+            height:190px;
+            width:23px;
+           -webkit-transform: rotate(150deg);
+            top:-185px;
+            left: -60px;
+        }
+        
+        
+        @-webkit-keyframes ray_anim { 
+                0% { -webkit-transform: rotate(0deg); transform: rotate(0deg);}    
+            100% { -webkit-transform: rotate(360deg); transform: rotate(360deg);}
+        }
+        
+        
+        ul {
+            list-style: none;
+            width:250px;
+            height:250px;
+            position:absolute;
+            top:0;
+            right:0;
+            bottom:0;
+            left:0;
+            margin:auto;
+            text-align:center;
+        }
+        
+        .option {
+            padding:3px;
+            border:1px solid lightgray;
+            cursor:pointer;
+            border-radius:10px;
+            background:white;
+        }
+        
+        .option:hover {
+            background:lightgray;
+        }
+        
+        .default_bg {
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(0deg, #62a0d8 0%, #2178d1 50%, #085cb3 100%);
+        background: linear-gradient(0deg, #fff 0%, #62a0d8 40%, #2178d1 70%, #085cb3 100%);
+        }
+        
+        .hideit {
+            display:none;
+        }
+        
+        .showit {
+            display: block;
+            
+        }
+        
+        #resetButton {
+            position:absolute;
+            top:0;
+            right:0;
+            bottom:0;
+            left:0;
+            margin:auto;
+        }
+
+        .hill img {
+            position: relative;
+            left: 450px;
+            top: 130px;
+        
+        }
+
+        .fox img {
+            position: relative;
+            bottom: 285px;
+            left: 775px;
+        
+        }
+        
+        </style>
+</head>
+<body id="sketchbook" class="default_bg">
+    <figure class="hill">
+    <img class="hill" src="img/hill.png"/></figure>
+    <figure class="fox">
+    <img class"fox" src="img/fox.png"/>
+    </figure>
+ 
+  
+
+
+
+    <div class="sun hideit" id="sun">
+        <div class="ray_box">
+            <div class="ray ray1"></div>
+            <div class="ray ray2"></div>
+            <div class="ray ray3"></div>
+            <div class="ray ray4"></div>
+            <div class="ray ray5"></div>
+            <div class="ray ray6"></div>
+            <div class="ray ray7"></div>
+            <div class="ray ray8"></div>
+            <div class="ray ray9"></div>
+            <div class="ray ray10"></div>
+           
+        </div>
+    </div>
+
+
+
+<ul>
+    <li style="font-size:20px;font-weight:bold;color:white;">Hey there! How are you?</li>
+    <li class="option" onclick="changeWeather(1)">Good!</li>
+    <li class="option" onclick="changeWeather(2)">Not yet</li>
+    <li class="option" onclick="changeWeather(3)">Not yet</li>
+    <li class="option" onclick="changeWeather(4)">Not yet</li>
+    <li class="option" onclick="changeWeather(5)">Not yet</li>
+</ul>
+
+<input type="button" value="Reset" onclick="reset()" id="resetButton" />
+
+<script>
+function changeWeather(num){
+    var number = num;
+    var bodyElement = document.getElementById("sketchbook");
+    var sun = document.getElementById("sun");
+    if(number==1){
+        bodyElement.classList.remove("default_bg");
+        bodyElement.classList.add("sun_sky");
+        sun.classList.remove("hideit");
+        sun.classList.add("showit");
+        //change the weather to a clear sky with clouds
+    }else if(number==2){
+        //change the weather to a suuny day
+        bodyElement.classList.remove("default_bg");
+        bodyElement.classList.add("sun_sky");
+        sun.classList.remove("hideit");
+        sun.classList.add("showit");
+    }else if(number==3){
+
+    }else if(number==4){
+
+    }else if(number==5){
+
+    }else{
+        //nothing for now
+    }
+}
+
+function reset(){
+    var bodyElement = document.getElementById("sketchbook");
+    var sun = document.getElementById("sun");
+    bodyElement.classList.remove("sun_sky");
+    bodyElement.classList.add("default_bg");
+    sun.classList.remove("showit");
+    sun.classList.add("hideit");
+}
+</script>
+
+    
+</body>
+</html>
